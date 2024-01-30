@@ -43,12 +43,23 @@ public class CarController {
                 .build();
         log.info("Car created: " + carRepository.save(car));
     }
-
+    @Operation(
+            summary = "get all cars from db"
+    )
     @GetMapping("/getAll")
     public List<Car> getAllCars(){
         return carRepository.findAll();
     }
 
+
+
+    @Operation(
+            summary = "get car from db by id",
+            description = "this method accept 'id' and " +
+                    "search car with this id in db. " +
+                    "If the car with this id does not exist " +
+                    "method will throw exception"
+    )
     @GetMapping("/get/{id}")
     public Car getCarById(@PathVariable Long id){
         return carRepository.findById(id)
