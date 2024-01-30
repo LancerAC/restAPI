@@ -31,8 +31,8 @@ public class CarController {
     @Operation(
             summary = "add new car in db",
 
-            description = "accept dto," +
-                    "build car with carDto params" +
+            description = "accept dto, " +
+                    "build car with carDto params " +
                     "and save it in db"
     )
     @PostMapping("/add")
