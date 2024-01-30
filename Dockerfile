@@ -1,6 +1,6 @@
 FROM openjdk:17
 
-COPY app.jar MyApp.jar
+COPY app2.jar MyApp.jar
 
 EXPOSE 8080
 
