@@ -1,6 +1,7 @@
 package com.example.restapi.Controller;
 
 import com.example.restapi.Entity.Car;
+import com.example.restapi.dto.CarDto;
 import com.example.restapi.repository.CarRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
@@ -29,9 +30,14 @@ public class CarController {
 
 
     @PostMapping("/add")
-    public void addCar(@RequestBody Car car){
+    public void addCar(@RequestBody CarDto carDto){
+        Car car = Car.builder()
+                .brand(carDto.getBrand())
+                .weight(carDto.getWeight())
+                .build();
         log.info("Car created: " + carRepository.save(car));
     }
+
     @GetMapping("/getAll")
     public List<Car> getAllCars(){
         return carRepository.findAll();
