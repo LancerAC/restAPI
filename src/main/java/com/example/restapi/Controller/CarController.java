@@ -4,6 +4,7 @@ import com.example.restapi.Entity.Car;
 import com.example.restapi.dto.CarDto;
 import com.example.restapi.repository.CarRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@Tag(name = "car_methods")
 @Slf4j
 @RequiredArgsConstructor
 public class CarController {
