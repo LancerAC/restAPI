@@ -4,6 +4,7 @@ import com.example.restapi.Entity.Car;
 import com.example.restapi.dto.CarDto;
 import com.example.restapi.repository.CarRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +28,13 @@ public class CarController {
 
     private final CarRepository carRepository;
 
+    @Operation(
+            summary = "add new car in db",
 
+            description = "accept dto," +
+                    "build car with carDto params" +
+                    "and save it in db"
+    )
     @PostMapping("/add")
     public void addCar(@RequestBody CarDto carDto){
         Car car = Car.builder()
